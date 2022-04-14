@@ -14,7 +14,7 @@
 	/*//Unset all of the session vars
 	$_SESSION = array(); 
 
-	//This will kill the session & destroy any cookies
+	//mematikan sesi & menghancurkan cookie apa pun
 	if (ini_get("session.use_cookies")){
 		$params = session_get_cookie_params();
 		setcookie(session_name(), '', time() -42000,
