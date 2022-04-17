@@ -1,3 +1,10 @@
+// include header sama ParseProfile
+<?php 
+	$page_title = "Profile";
+	include_once 'includes/header.php';
+	include_once 'controllers/ParseProfile.php';
+?>
+
 <div class="container">
 	<div>
 		<h1>Profile</h1>
