@@ -1,3 +1,10 @@
+// Include Session
+<?php 
+    $page_title = 'Homepage';
+    include_once'includes/header.php';
+    include_once'config/Session.php';    
+?>
+
 <div class="jumbotron">
 	<div class="container text-center">
 		<h1>RSGM Online</h1>
