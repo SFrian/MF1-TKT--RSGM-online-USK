@@ -1,3 +1,9 @@
+// menambahkan session dan include header
+<?php 
+    $page_title = 'Register';
+    include_once'includes/header.php'; 
+    include_once'controllers/ParseRegister.php';
+?>
 <section id="register-main">
             <div class="container">
                 <div class="row">
