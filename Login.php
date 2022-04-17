@@ -43,3 +43,32 @@ if(isset($_POST['login'])){
 }
 
 ?> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Login</h1>
+        <?php
+            if(!empty($err)){
+                echo "<ul class='err'>$err</ul>";
+            }
+        ?>
+            <form action="" method="post">
+                <input type="text" name="username" valeu="<?php echo $username ?>" class="input" placeholder="nama">
+                <input type="password" name="password" class="input" placeholder="password"></br>
+                <input type="submit" name="login" value="Masuk Ke Sistem" >
+            </form>
+
+    </div>
+
+    
+</body>
+</html>
