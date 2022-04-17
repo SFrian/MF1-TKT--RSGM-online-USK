@@ -1,9 +1,3 @@
-<?php
-    $page_title = 'Login';
-    include_once'includes/header.php';
-    include_once'controllers/ParseLogin.php'; 
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
