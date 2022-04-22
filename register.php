@@ -1,54 +1,41 @@
-// menambahkan session dan include header
-<?php 
-    $page_title = 'Register';
-    include_once'includes/header.php'; 
-    include_once'controllers/ParseRegister.php';
+<?php
+    $page_title = 'Login';
+    // include_once'includes/header.php';
+    // include_once'controllers/ParseLogin.php'; 
 ?>
-<section id="register-main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
-                        <h1>User Authentication system.</h1>
-                        <h3>Register</h3>
-                        <br>
-                            
-                        <?php if(isset($result)) echo $result; ?>
-                        <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3 text-center">
 
-                        <form class="form-horizontal" action="" method="POST">
-                            <div class="form-group col-md-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
-                                    <input class="form-control" type="text" placeholder="Your email address" name="email">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-user"></i>
-                                    </span>
-                                    <input class="form-control" type="text" placeholder="username" name="username" >
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-key"></i>
-                                    </span>
-                                    <input class="form-control" type="password" placeholder="password" name="password">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12 button text-center">
-                                <input name="registerBtn" type="submit" value="Register" class="btn btn-primary btn-lg">
-                                    
-                            </div>
-                        </form>
-                    </div>
-                </div>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style_log.css" />
+    <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
+    <title>RSGM</title>
+  </head>
+    
+  <body>
+<!--  Contain register    -->
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="beranda.php" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" />
             </div>
-        </section>
-<?php include_once'includes/footer.php'; ?>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" />
+            </div>
+            <input type="submit" value="Login" class="btn solid" />
+              
+   </body>
+            
+</html>
