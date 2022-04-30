@@ -1,3 +1,6 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <!-- blom aku tambahin formar php -->
 
 <!DOCTYPE html>
@@ -11,6 +14,15 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style_log.css" />
+
+    <title>RSGM</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+
     <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
     <title>RSGM</title>
   </head>
@@ -21,6 +33,7 @@
       <div class="forms-container">
         <div class="signin-signup">
           <form action="beranda.php" class="sign-in-form">
+
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -34,13 +47,16 @@
            
             
           </form>
-          <form action="beranda.php" class="sign-up-form">
+
+          <form action="#" class="sign-up-form">
+         <form action="beranda.php" class="sign-up-form">
+
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Username" />
             </div>
-		  
+
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" />
@@ -50,17 +66,25 @@
               <input type="password" placeholder="Password" />
             </div>
             <div>
+
+              <a href="beranda.html">
+              <input type="submit" class="btn" value=" Sign up" />
+            </a>
+
               <!-- <a href="beranda.html"></a> -->
                 <!-- <button  type="submit" class="btn" >Sign up</button> -->
               <input type="submit" class="btn" value=" Sign up" />
             
+
             </div>
            
           </form>
         </div>
       </div>
+
 	    
 <!-- inframe  -->
+
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
@@ -73,8 +97,9 @@
             </button>
           </div>
         </div>
-	      
+ 
 <!-- interaksi untuk aminasi css	       -->
+
         <div class="panel right-panel">
           <div class="content">
             <h3>Sudah punya akun ?</h3>
@@ -90,6 +115,10 @@
       </div>
     </div>
 
+
+    <script src="app.js"></script>
+
     <script src="js/app.js"></script>
+
   </body>
 </html>
