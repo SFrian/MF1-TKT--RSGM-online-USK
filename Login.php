@@ -1,5 +1,6 @@
 <?php
 session_start();
+// membuat logika session
 if (isset($_SESSION['admin_username'])) {
     header("location:admin_depan.php");
 }
