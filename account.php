@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+//membuat halaman akun
 <head>
     <title>account</title>
     <meta charset="UTF-8">
