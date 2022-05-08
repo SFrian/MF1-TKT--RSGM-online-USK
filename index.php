@@ -1,4 +1,15 @@
 
+<?php
+    $page_title = 'Login';
+    // include_once'includes/header.php';
+    // include_once'controllers/ParseLogin.php'; 
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- blom aku tambahin formar php -->
@@ -14,6 +25,11 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style_log.css" />
+// qurrata.update
+    <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
+    <title>RSGM</title>
+  </head>
+  <body>
 
     <title>RSGM</title>
   </head>
@@ -29,11 +45,14 @@
 	
   <body>
 <!-- 	   -->
+<!-- main -->
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="beranda.php" class="sign-in-form">
+<!-- qurrata.update -->
 
+<!--  main -->
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -48,14 +67,20 @@
             
           </form>
 
+          <form action="beranda.php" class="sign-up-form">
+
+
           <form action="#" class="sign-up-form">
          <form action="beranda.php" class="sign-up-form">
+
 
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Username" />
             </div>
+
+
 
             <div class="input-field">
               <i class="fas fa-envelope"></i>
@@ -67,6 +92,7 @@
             </div>
             <div>
 
+
               <a href="beranda.html">
               <input type="submit" class="btn" value=" Sign up" />
             </a>
@@ -74,7 +100,6 @@
               <!-- <a href="beranda.html"></a> -->
                 <!-- <button  type="submit" class="btn" >Sign up</button> -->
               <input type="submit" class="btn" value=" Sign up" />
-            
 
             </div>
            
@@ -82,8 +107,6 @@
         </div>
       </div>
 
-	    
-<!-- inframe  -->
 
       <div class="panels-container">
         <div class="panel left-panel">
@@ -97,6 +120,7 @@
             </button>
           </div>
         </div>
+
  
 <!-- interaksi untuk aminasi css	       -->
 
@@ -115,6 +139,8 @@
       </div>
     </div>
 
+
+    <script src="js/app.js"></script>
 
     <script src="app.js"></script>
 
