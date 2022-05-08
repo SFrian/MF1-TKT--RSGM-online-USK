@@ -1,3 +1,4 @@
+<!-- deklerasi atau untuk mengidentifikasi jenis dokumen HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
