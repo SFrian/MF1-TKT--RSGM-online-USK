@@ -35,5 +35,6 @@
               <input type="password" placeholder="Password" />
             </div>
             <input type="submit" value="Login" class="btn solid" />      
+              
    </body>            
 </html>
