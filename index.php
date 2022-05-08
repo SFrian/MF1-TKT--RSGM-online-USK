@@ -1,4 +1,4 @@
-<!-- blom aku tambahin formar php -->
+<!-- belum ditambahkan format php -->
 
 <!DOCTYPE html>
 <html lang="en">
