@@ -1,10 +1,9 @@
+<!-- deklerasi atau untuk mengidentifikasi jenis dokumen HTML -->
 <?php
     // // koneksi ke database
     require 'functions.php';
     $kasus = query("SELECT * FROM kasus");
      
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

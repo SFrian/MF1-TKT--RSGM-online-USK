@@ -15,8 +15,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- blom aku tambahin formar php -->
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +26,7 @@
     ></script>
     <link rel="stylesheet" href="style_log.css" />
 
-// qurrata.update
+<!-- qurrata.update -->
     <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
     <title>RSGM</title>
   </head>
