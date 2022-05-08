@@ -4,10 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hubungi Kami</title>
-	<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+	<link rel="stylesheet" href="fontawesome/css/all.min.css"> 
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -56,9 +57,7 @@
                     <i class="fab fa-linkedin tm-social-icon"></i>
                 </a>
             </div>
-            <p class="tm-mb-80 pr-5 text-white">
-                Xtra Blog is a multi-purpose HTML template from TemplateMo website. Left side is a sticky menu bar. Right side content will scroll up and down.
-            </p>
+           
         </div>
     </header>
     <div class="container-fluid">
