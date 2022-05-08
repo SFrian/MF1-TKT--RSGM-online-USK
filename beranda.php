@@ -1,3 +1,4 @@
+<!-- membuat paragraf pada html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
