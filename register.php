@@ -4,7 +4,6 @@
     // include_once'controllers/ParseLogin.php'; 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,6 +18,7 @@
     <title>RSGM</title>
   </head>
     
+//definisi konten utama yang ditampilkan di halaman
   <body>
 <!--  Contain register    -->
     <div class="container">
@@ -34,8 +34,6 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn solid" />
-              
-   </body>
-            
+            <input type="submit" value="Login" class="btn solid" />      
+   </body>            
 </html>
