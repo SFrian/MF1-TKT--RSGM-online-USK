@@ -1,4 +1,6 @@
 
+ farhan.update
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,6 +218,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  main
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -427,5 +430,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/templatemo-script.js"></script>
 </body>
+ farhan.update
 
+
+ main
 </html>
