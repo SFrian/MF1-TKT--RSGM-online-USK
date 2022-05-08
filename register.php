@@ -18,7 +18,7 @@
     <title>RSGM</title>
   </head>
     
-//definisi konten utama yang ditampilkan di halaman
+<!-- definisi konten utama yang ditampilkan di halaman -->
   <body>
 <!--  Contain register    -->
     <div class="container">
