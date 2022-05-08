@@ -5,6 +5,7 @@ if (isset($_SESSION['admin_username'])) {
     header("location:admin_depan.php");
 }
 
+// membuat koneksi 
 include("inc_koneksi.php");
 $username = "";
 $password = "";
