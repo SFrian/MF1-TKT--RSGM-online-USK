@@ -9,8 +9,6 @@
 
 farhan.update
 	//penting!!!
-	//This will be moved shortly 
-
 	
 	/*//untuk Unset all of the session vars
 	$_SESSION = array(); 
