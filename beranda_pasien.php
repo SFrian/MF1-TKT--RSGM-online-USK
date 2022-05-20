@@ -63,27 +63,24 @@ if(isset($_POST["cari"]) ){
             </div>
             <nav class="tm-nav" id="tm-nav">            
                 <ul>
-                    <li class="tm-nav-item active"><a href="beranda.php" class="tm-nav-link">
+                    <li class="tm-nav-item active"><a href="beranda_pasien.php" class="tm-nav-link">
                         
                         <i class="fas fa-h-square"></i>
                         Beranda
                     </a></li>
-                    <li class="tm-nav-item"><a href="input_kasus.php" class="tm-nav-link">
-                        <i class="fas fa-plus"></i>
-                        Input Kasus
-                    </a></li>
-                    <li class="tm-nav-item"><a href="daftar_pasien.php" class="tm-nav-link">
-                        <i class="fas fa-users"></i>
-                        Daftar Pasien
-                    </a></li>
-                    <!-- <li class="tm-nav-item"><a href="profile.php" class="tm-nav-link">
+                    
+                      <!-- <li class="tm-nav-item"><a href="profile_pasien.php" class="tm-nav-link">
+    
                         <i class="fas fa-user"></i>
                         Profile
                     </a></li> -->
-                    <li class="tm-nav-item"><a href="hubungi_kami.php" class="tm-nav-link">
+
+                    <li class="tm-nav-item"><a href="hubungi_kami_pasien.php" class="tm-nav-link">
                         <i class="far fa-comments"></i>
                         Hubungi Kami
                     </a></li>
+
+                  
                     
                 </ul>
             </nav>
@@ -167,10 +164,10 @@ if(isset($_POST["cari"]) ){
                         <span><?= $row["nama"]; ?></span>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <a href="hapus.php?id=<?= $row["id"]; ?> " onclick="
-                        return confirm('Apakah anda yakin ingin menghapus Kasus ini?');" class="tm-color-primary">Hapus</a>
+                        
+                        <a href="cetak.php" class="tm-color-primary">Pilih</a>
                         <!-- Ubah postingan -->
-                        <a href="edit.php?id=<?= $row["id"]; ?>">Edit</a>
+                        
                         
                     </div>
                 </article>

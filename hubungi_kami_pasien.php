@@ -1,12 +1,3 @@
-<?php
-session_start();
-if( !isset($_SESSION['login'])) {
-    header("Location: index.php");
-    exit;
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,35 +19,25 @@ if( !isset($_SESSION['login'])) {
             </button>
             
             <div class="tm-site-header">
-                <div class="mb-3 mx-auto tm-site-logo">
-                    <i class="fas fa-envelope fa-3x"></i>
-                    
-                </div>            
-                <h1 class="text-center">Hubungi Kami</h1>
+                <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-times fa-2x"></i></div>            
+                <h1 class="text-center">Profile User</h1>
             </div>
             <nav class="tm-nav" id="tm-nav">            
                 <ul>
-                    <li class="tm-nav-item "><a href="beranda.php" class="tm-nav-link" >
+                    <li class="tm-nav-item "><a href="beranda_pasien.php" class="tm-nav-link" >
                         <i class="fas fa-home"></i>
                         Beranda
                     </a></li>
-                    <li class="tm-nav-item"><a href="input_kasus.php" class="tm-nav-link">
-                        <i class="fas fa-pen"></i>
-                        Input Kasus
-                    </a></li>
-                    <li class="tm-nav-item"><a href="daftar_pasien.php" class="tm-nav-link">
-                        <i class="fas fa-users"></i>
-                        Daftar Pasien
-                    </a></li>
-                    <li class="tm-nav-item active"><a href="hubungi_kami.php" class="tm-nav-link">
-                        <i class="far fa-comments"></i>
-                        Hubungi Kami
-                    </a></li>
-                    <!-- <li class="tm-nav-item"><a href="profile.php" class="tm-nav-link">
+                    <!-- <li class="tm-nav-item"><a href="profile_pasien.php" class="tm-nav-link">
     
                         <i class="fas fa-user"></i>
                         Profile
                     </a></li> -->
+                    <li class="tm-nav-item active"><a href="hubungi_kami_pasien.php" class="tm-nav-link">
+                        <i class="far fa-comments"></i>
+                        Hubungi Kami
+                    </a></li>
+                    
                 </ul>
             </nav>
 

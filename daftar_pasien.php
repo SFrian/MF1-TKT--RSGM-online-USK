@@ -1,3 +1,12 @@
+<?php
+session_start();
+if( !isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit;
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +14,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Profile User</title>
 	<link rel="stylesheet" href="fontawesome/css/all.min.css">
-     <!-- https://fontawesome.com/ -->
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
-    <!-- https://fonts.google.com/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -21,8 +29,11 @@
 
             <!-- haeder bar -->
             <div class="tm-site-header">
-                <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-times fa-2x"></i></div>            
-                <h1 class="text-center">Profile User</h1>
+                <div class="mb-3 mx-auto tm-site-logo">
+                    
+                    <i class="far fa-address-book fa-3x"></i>
+                </div>            
+                <h1 class="text-center">Daftar Pasien</h1>
             </div>
             <nav class="tm-nav" id="tm-nav">            
                 <ul>
@@ -42,14 +53,19 @@
                         <i class="far fa-comments"></i>
                         Hubungi Kami
                     </a></li>
+                    <!-- <li class="tm-nav-item"><a href="profile.php" class="tm-nav-link">
+    
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a></li> -->
                 </ul>
             </nav>
 
-            <div class="tm-mb-65">
-                <a href="https://facebook.com" class="tm-social-link">
-                    <i class="fab fa-facebook tm-social-icon"></i>
+            <div class="tm-mb-100">
+                <a rel="nofollow" href="logout.php" class="tm-social-link">
+                    <i class="fas fa-sign-out-alt tm-social-icon"></i>
                 </a>
-                <a href="https://twitter.com" class="tm-social-link">
+                <!-- <a href="https://twitter.com" class="tm-social-link">
                     <i class="fab fa-twitter tm-social-icon"></i>
                 </a>
                 <a href="https://instagram.com" class="tm-social-link">
@@ -57,11 +73,9 @@
                 </a>
                 <a href="https://linkedin.com" class="tm-social-link">
                     <i class="fab fa-linkedin tm-social-icon"></i>
-                </a>
+                </a> -->
             </div>
-            <p class="tm-mb-80 pr-5 text-white">
-                Xtra Blog is a multi-purpose HTML template from TemplateMo website. Left side is a sticky menu bar. Right side content will scroll up and down.
-            </p>
+            
         </div>
     </header>
     <div class="container-fluid">
