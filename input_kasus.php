@@ -1,3 +1,40 @@
+<!-- up. inputan ada nama pangan untuk array database -->
+<?php
+session_start();
+if( !isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit;
+}
+
+// koneksi
+require 'config/function.php';
+
+// cek tombol submit
+if(isset($_POST["submit"])){
+
+    // var_dump($_FILES); die; debug
+
+    
+    
+// cek apakah berhasil ditambah
+    if( input($_POST) > 0 ) {
+        echo "
+        <script>
+            alert('Kasus berhasil ditambahkan');
+            document.location.href = 'beranda.php';
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('Kasus gagal ditambahkan');
+            document.location.href = 'input_kasus.php';
+        </script>
+        ";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +45,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/tab.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -18,17 +56,20 @@
             </button>
 
              <div class="tm-site-header">
-                <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-times fa-2x"></i></div>            
-                <h1 class="text-center">Profile User</h1>
+                <div class="mb-3 mx-auto tm-site-logo">
+                    
+                    <i class="fas fa-plus-circle fa-3x"></i>
+                </div>            
+                <h1 class="text-center">Input Kasus</h1>
             </div>
             <nav class="tm-nav" id="tm-nav">            
                 <ul>
                     <li class="tm-nav-item"><a href="beranda.php" class="tm-nav-link">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-h-square"></i>
                         Beranda
                     </a></li>
                     <li class="tm-nav-item active"><a href="input_kasus.php" class="tm-nav-link">
-                        <i class="fas fa-pen"></i>
+                        <i class="fas fa-plus"></i>
                         Input Kasus
                     </a></li>
                     <li class="tm-nav-item"><a href="daftar_pasien.php" class="tm-nav-link">
@@ -39,14 +80,19 @@
                         <i class="far fa-comments"></i>
                         Hubungi Kami
                     </a></li>
+                    <!-- <li class="tm-nav-item"><a href="profile.php" class="tm-nav-link">
+    
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a></li> -->
                 </ul>
             </nav>
 
-            <div class="tm-mb-65">
-                <a href="https://facebook.com" class="tm-social-link">
-                    <i class="fab fa-facebook tm-social-icon"></i>
+            <div class="tm-mb-100">
+                <a rel="nofollow" href="logout.php" class="tm-social-link">
+                    <i class="fas fa-sign-out-alt tm-social-icon"></i>
                 </a>
-                <a href="https://twitter.com" class="tm-social-link">
+                <!-- <a href="https://twitter.com" class="tm-social-link">
                     <i class="fab fa-twitter tm-social-icon"></i>
                 </a>
                 <a href="https://instagram.com" class="tm-social-link">
@@ -54,11 +100,9 @@
                 </a>
                 <a href="https://linkedin.com" class="tm-social-link">
                     <i class="fab fa-linkedin tm-social-icon"></i>
-                </a>
+                </a> -->
             </div>
-            <p class="tm-mb-80 pr-5 text-white">
-                Xtra Blog is a multi-purpose HTML template from TemplateMo website. Left side is a sticky menu bar. Right side content will scroll up and down.
-            </p>
+            
         </div>
     </header>
     <div class="container-fluid">
@@ -78,7 +122,7 @@
             <div class="row tm-row">
                 <div class="col-12">
                     <hr class="tm-hr-primary tm-mb-55">
-                    <!-- Video player 1422x800 -->
+                    
                     
                 </div>
             </div>
@@ -87,40 +131,76 @@
                     <div class="tm-post-full">                    
                         <div class="mb-4">
                             <h2 class="pt-2 tm-color-primary tm-post-title">Silahkan Memasukkan Kasus Yang Akan Ditangani</h2>
-                            <p class="tm-mb-40">$mount $Data posted by $username</p>
+                            <!-- header text -->
+                            <!-- <p class="tm-mb-40"></p> -->
 
                             <!-- Input Formnya -->
-                            <form action="" class="mb-5 tm-comment-form">
+                            <!-- req methodnya baru post -->
+                            <form action="" method="post" enctype="multipart/form-data"  class="mb-5 tm-comment-form" >
                                 <center>
                                 <h2 class="tm-color-primary tm-post-title mb-4">Input Studi Kasus</h2>
                                 </center>
+
                                 <div class="mb-4">
-                                    <input class="form-control" name="name" placeholder="Nama ..." type="text">
-                                </div>
-                                <div class="mb-4">
-                                    <input class="form-control" name="title" placeholder="Judul Kasus ..." type="text">
-                                </div>
-                                <div class="mb-4">
-                                    <input class="form-control" name="email" placeholder="Deskripsi Kasus ..." type="text">
+                                    <input name="nama" placeholder="Nama Penangan ..." type="text" class="form-control" oninvalid="InvalidMsg(this);"
+				                    oninput="InvalidMsg(this);" required="required">
                                 </div>
 
                                 <div class="mb-4">
-                                    <input class="form-control" name="date" placeholder="tanggal ..." type="text">
-                                    <input class="form-control" name="mount" placeholder="bulan ..." type="text">
-                                    <input class="form-control" name="time" placeholder="waktu ..." type="text">
+                                    <input  name="judul" placeholder="Judul Kasus ..." type="text" class="form-control" oninvalid="InvalidMsg(this);"
+				                    oninput="InvalidMsg(this);" required="required" >
                                 </div>
-                                
-
-
 
                                 <div class="mb-4">
-                                    <textarea class="form-control" name="message" placeholder="Keterangan Lebih lanjut ..." rows="6"></textarea>
+                                    <input  name="deskripsi" placeholder="Deskripsi Kasus ..." type="text" class="form-control" oninvalid="InvalidMsg(this);"
+				                    oninput="InvalidMsg(this);" required="required">
                                 </div>
+
+                                <div class="mb-4">
+                                    <!-- <label for="birthdaytime" class="mb-4"></label><br> -->
+                                    <input type="datetime-local"  name="jadwal" class="form-control">
+                                <!-- ganti type sub -->
+
+                                    <!-- <input  name="tanggal" placeholder="tanggal ..." type="text" class="form-control">
+                                    <input  name="bulan" placeholder="bulan ..." type="text" class="form-control">
+                                    <input  name="tahun" placeholder="tahun ..." type="text" class="form-control"> -->
+                                    <!-- perbaikan disini | db rsgm2 -->
+                                </div>
+                        
+                                <div class="mb-4">
+                                    <textarea class="form-control" name="keterangan" placeholder="Keterangan Lebih lanjut ..." rows="6" oninvalid="InvalidMsg(this);"
+				                    oninput="InvalidMsg(this);" required="required"></textarea>
+                                </div>
+
+                                <div class="mb-4">
+                                    <!-- input untuk upload file -->
+                                    <!-- fix this untuk upload -->
+                
+                                    <input type="file" name="gambar" class="form-control">
+                                </div>
+
                                 <div class="text-right">
-                                    <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>                        
+                                    <button type="submit" name="submit" class="tm-btn tm-btn-primary tm-btn-small">Posting</button>                        
                                 </div>                                
                             </form>          
-                            
+
+<script>
+		function InvalidMsg(textbox) {
+
+            if (textbox.value === '') {
+                textbox.setCustomValidity
+                    ('Kolom tidak boleh kosong!                   Pastikan untuk memasukkan semua data informasi yang dibutuhkan!!');
+            } else if (textbox.validity.typeMismatch) {
+                textbox.setCustomValidity
+                    ('Please enter an email address which is valid!');
+            } else {
+                textbox.setCustomValidity('');
+            }
+
+            return true;
+            }
+</script>
+        
                             <!-- <span class="d-block text-right tm-color-primary">Creative . Design . Business</span> -->
                         </div>
                         
