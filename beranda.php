@@ -1,4 +1,40 @@
-<!-- membuat paragraf pada html -->
+<?php
+session_start();
+if( !isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit;
+}
+
+
+// koneksi database
+   require 'config/function.php';
+   // paginasi
+   // konfigurasikan pagination
+   $jumlahDataPerHalaman = 4; 
+   $jumlahData = count(query("SELECT * FROM studikasus")); 
+   $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+   // op ternari
+   $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+   $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;   
+
+
+
+
+
+
+   $studikasus = query("SELECT * FROM studikasus ORDER BY id DESC LIMIT $awalData,$jumlahDataPerHalaman");
+//    ORDER BY id DESC
+
+//  Button cari 
+// live search
+if(isset($_POST["cari"]) ){
+    $studikasus = cari($_POST["keyword"]);
+
+} 
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,34 +58,46 @@
             <!-- header bar -->
             <div class="tm-site-header">
                 <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-times fa-2x"></i></div>            
-                <h1 class="text-center">Profile User</h1>
+                <h1 class="text-center">RSGM</h1>
+                <!-- <h1 class="text-center">Profile User</h1> -->
             </div>
             <nav class="tm-nav" id="tm-nav">            
                 <ul>
                     <li class="tm-nav-item active"><a href="beranda.php" class="tm-nav-link">
-                        <i class="fas fa-home"></i>
+                        
+                        <i class="fas fa-h-square"></i>
                         Beranda
                     </a></li>
                     <li class="tm-nav-item"><a href="input_kasus.php" class="tm-nav-link">
-                        <i class="fas fa-pen"></i>
+                        <i class="fas fa-plus"></i>
                         Input Kasus
                     </a></li>
                     <li class="tm-nav-item"><a href="daftar_pasien.php" class="tm-nav-link">
                         <i class="fas fa-users"></i>
                         Daftar Pasien
                     </a></li>
+                    <!-- <li class="tm-nav-item"><a href="profile.php" class="tm-nav-link">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a></li> -->
                     <li class="tm-nav-item"><a href="hubungi_kami.php" class="tm-nav-link">
                         <i class="far fa-comments"></i>
                         Hubungi Kami
                     </a></li>
+                    </a></li>
+                    <li class="tm-nav-item"><a href="input_kasus.php" class="tm-nav-link">
+                        <i class="fas fa-plus"></i>
+                        Input Kasus
+                    
                 </ul>
             </nav>
             
-            <div class="tm-mb-65">
-                <a rel="nofollow" href="https://fb.com/templatemo" class="tm-social-link">
-                    <i class="fab fa-facebook tm-social-icon"></i>
+            <!-- icon soscial media -->
+            <div class="tm-mb-100">
+                <a rel="nofollow" href="logout.php" class="tm-social-link">
+                    <i class="fas fa-sign-out-alt tm-social-icon"></i>
                 </a>
-                <a href="https://twitter.com" class="tm-social-link">
+                <!-- <a href="https://twitter.com" class="tm-social-link">
                     <i class="fab fa-twitter tm-social-icon"></i>
                 </a>
                 <a href="https://instagram.com" class="tm-social-link">
@@ -57,114 +105,90 @@
                 </a>
                 <a href="https://linkedin.com" class="tm-social-link">
                     <i class="fab fa-linkedin tm-social-icon"></i>
-                </a>
+                </a> -->
             </div>
             
         </div>
     </header>
+
     <div class="container-fluid">
+   
+
         <main class="tm-main">
 
-            <!-- Form Untuk pencarian  -->
+            
             <div class="row tm-row">
                 <div class="col-12">
-                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">                
-                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Cari..." aria-label="Search">
-                        <button class="tm-search-button" type="submit">
+                    <!-- Form Untuk pencarian  -->
+                    <form action="" method="post" class="form-inline tm-mb-80 tm-search-form">   
+                                        <!-- input pencarian -->
+                        <input autofocus  class="form-control tm-search-input" name="keyword" 
+                                type="text" placeholder="Cari..." aria-label="Search" autocomplete="off">
+                                        <!-- tombol Button -->
+                        <button class="tm-search-button" type="submit" name="cari">
                             <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
                         </button>                                
                     </form>
                 </div>                
-            </div>            
+            </div>   
+
             <div class="row tm-row">
+
+
+    <?php foreach( $studikasus as $row) : ?>
                 <article class="col-12 col-md-6 tm-post">
+                </a></li>
+                    <li class="tm-nav-item"><a href="input_kasus.php" class="tm-nav-link">
+                        <i class="fas fa-plus"></i>
+                        Input Kasus
                     <hr class="tm-hr-primary">
                     <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                            <img src="img/img-02 - Copy.jpg" alt="Image" class="img-fluid">                            
+                            <img src="img/<?= $row["gambar"]; ?>" alt="Image" class="img-fluid">                            
                         </div>
+
                         <span class="position-absolute tm-new-badge">Baru</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Kasus Yang Baru Dipublis</h2>
-                    </a>                    
+
+                        <!-- element judul -->
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title" ><?= $row["judul"]; ?></h2>
+                    </a>               
+                        <!-- deskripsi -->
                     <p class="tm-pt-30">
-                        Disini berisikan contoh inputan kasus berserta keterangan info lanjutan dari kasus yang diinput mahasiswa.
+                        <?= $row["deskripsi"]; ?>
                     </p>
+
                     <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Pemeriksaan  . Rutin</span>
-                        <span class="tm-color-primary">April 18, 2022</span>
+                        <!-- keterangan -->
+                        <span class="tm-color-primary">
+                            <?= $row["keterangan"]; ?>
+                        </span>
+
+                        <!-- tanggal bulan dan waktu -->
+                        <span class="tm-color-primary"><?= $row["jadwal"]; ?></span>
                     </div>
                     <hr>
+
                     <div class="d-flex justify-content-between">
                         <span>Dipublish oleh :</span>
-                        <span>Eren Jeagar</span>
+                        <!-- nama disini -->
+                        <span><?= $row["nama"]; ?></span>
                     </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
-                        <div class=" tm-post-link-inner">
-                            <img src="img/img-02 - Copy.jpg" alt="Image" class="img-fluid">                            
-                        </div>
-                        <span class="position-absolute tm-new-badge">Baru</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Pemeriksaan Kesehatan Gigi Gratis</h2>
-                    </a>                    
-                    <p class="tm-pt-30">
-                        Disini berisikan contoh inputan kasus berserta keterangan info lanjutan dari kasus yang diinput mahasiswa.  
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Pemeriksaan . Gratis</span>
-                        <span class="tm-color-primary">April 31, 2022</span>
-                    </div>
-                    <hr>
                     <div class="d-flex justify-content-between">
-                        <!-- ini bisa diisikan ditangani? -->
-                        <span>Dipublish oleh</span> 
-                        <span>Mahasiswa Koas</span>
+                        <a href="hapus.php?id=<?= $row["id"]; ?> " onclick="
+                        return confirm('Apakah anda yakin ingin menghapus Kasus ini?');" class="tm-color-primary">Hapus</a>
+                        <!-- Ubah postingan -->
+                        <a href="edit.php?id=<?= $row["id"]; ?>">Edit</a>
+                        
                     </div>
                 </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
-                        <div class="tm-post-link-inner">
-                            <img src="img/img-02 - Copy.jpg" alt="Image" class="img-fluid">
-                        </div>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Example Case 1</h2>
-                    </a>                    
-                    <p class="tm-pt-30">
-                       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae culpa, in libero et doloremque quae facere commodi voluptatibus nemo quia! Necessitatibus impedit temporibus et ullam nobis autem cum sed deleniti!
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Music . Audio</span>
-                        <span class="tm-color-primary">June 11, 2024</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>Dipublish oleh</span>
-                        <span>Mahasiswa Koas</span>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
-                        <div class="tm-post-link-inner">
-                            <img src="img/img-02 - Copy.jpg" alt="Image" class="img-fluid">
-                        </div>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Example Case 2 </h2>
-                    </a>                    
-                    <p class="tm-pt-30">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, repellat illum! Officia similique dolore minima, commodi nobis doloribus praesentium ipsa odio quia. Iusto ab aliquid temporibus molestiae enim reiciendis et!
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Pemeriksaan . Kasus</span>
-                       
-                        <span class="tm-color-primary">June 4, 2024</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>Dipublish oleh</span>
-                        <span> Mahasiswa Koas</span>
-                    </div>
-                </article>
+
+                <!-- fix article -->
+
+
+    <?php endforeach; ?>
+
+                <!-- span artikel kosong -->
+                <!-- buat next row atau pages -->
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
                     <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
@@ -173,34 +197,56 @@
                         
                     </a>                    
                 </article>
+
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
                     <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     </a>                    
                 </article>
             </div>
+
             <div class="row tm-row tm-mt-100 tm-mb-75">
+                <!-- next or previous pages  -->
                 <div class="tm-prev-next-wrapper">
-                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
-                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+            <?php if( $halamanAktif > 1 ) : ?>
+                    <a href="?halaman=<?= $halamanAktif -1; ?>" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Prev</a>
+                    
+            <?php else : ?>
+                    <a href="?halaman=<?= $halamanAktif -1; ?>" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
+                    
+            <?php endif; ?>
+
+            <?php if( $halamanAktif < $jumlahHalaman ) : ?>
+                    
+                    <a href="?halaman=<?= $halamanAktif +1; ?>" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+            <?php else : ?>
+                    
+                    <a href="?halaman=<?= $halamanAktif +1; ?>" class="mb-2 tm-btn tm-btn-primary disabled tm-prev-next">Next</a>
+            <?php endif; ?>
+
+
                 </div>
+
                 <div class="tm-paging-wrapper">
                     <span class="d-inline-block mr-3">Page</span>
                     <nav class="tm-paging-nav d-inline-block">
+
+            <!-- pengulangan pagination -->
                         <ul>
+            <?php for( $i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
+                            <?php if( $i == $halamanAktif ) : ?>   
                             <li class="tm-paging-item active">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
+                                <a href="?halaman=<?= $i; ?>" class="mb-2 tm-btn tm-paging-link"><?= $i; ?></a>
                             </li>
+                            <?php else : ?>
                             <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
+                                <a href="?halaman=<?= $i; ?>" class="mb-2 tm-btn tm-paging-link"><?= $i; ?></a>
                             </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
-                            </li>
-                            <li class="tm-paging-item">
-                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
-                            </li>
+
+                            <?php endif; ?>
+            <?php endfor; ?>
                         </ul>
+
                     </nav>
                 </div>                
             </div>            
@@ -208,6 +254,9 @@
 
             </footer>
         </main>
+
+
+
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/templatemo-script.js"></script>
